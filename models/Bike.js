@@ -39,3 +39,5 @@ Bike.removeBike = function(id){
 }
 
 module.exports = Bike;
+
+console.log(Bike);
