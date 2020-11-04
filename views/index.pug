@@ -1,5 +1,13 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div(id='wrapper')
+    div(class='container mt-container')
+      div(class='row')
+        div(class='col-md-12')
+          h1= mainTitle
+      div(class='row')
+        div(class='col-md-4')
+          p #{description}
+          a(href='/register' class='btn btn-danger') Register Bike
+          a(href='/list' class='btn btn-info ml-1') Bike list

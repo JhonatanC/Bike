@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+  div(class='container')
+    div(class='row')
+      div(class='col-md-6')
+        form(action='/api/bikes/update' method='POST')
+          .form-group
+            label(for='id') ID:
+            input#id.form-control(type='number', name='id' value=bike.id)
+          .form-group
+            label(for='modelo') Model:
+            input#modelo.form-control(type='text', name='modelo' value=bike.modelo)
+          .form-group
+            label(for='color') Color:
+            input#color.form-control(type='text', name='color' value=bike.color)
+          .form-group
+            label(for='lat') Latitude:
+            input#lat.form-control(type='text' name='lat' value=bike.ubicacion[0])
+          .form-group
+            label(for='lng') Longitud:
+            input#lng.form-control(type='text' name='lng' value=bike.ubicacion[1])
+
+          button.btn.btn-primary(type='submit') Update
+          a.btn.btn-danger(href='/list' class='ml-1') Back
+      div(class='col-md-6')
+        <div id="map"></div>
+    
+

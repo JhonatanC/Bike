@@ -11,8 +11,14 @@ Bike.arrayBikes = [];
 
 // Agregar una nueva bicicleta al arreglo
 Bike.add = function(data){
-    Bike.allBike.push(data);
+    Bike.arrayBikes.push(data);
 }
+
+var a = new Bike(1,'Clásica','Madera',[3.4476327,-76.5412732]);
+var b = new Bike(2,'Urbana','Naranja',[3.4519257,-76.5358253]);
+
+Bike.add(a);
+Bike.add(b);
 
 // Buscar un elemento
 Bike.searchBike = function(id){
@@ -30,14 +36,13 @@ Bike.searchBike = function(id){
 
 // Eliminar un elemento
 Bike.removeBike = function(id){
-    let BikeID = Bike.arrayBikes.find( element => element.id == id );
-    if(BikeID){
-        Bike.allBike.splice(i, 1);
-    } else {
-        throw new Error(`No existe una bicicleta con el id ${BikeID}`);
+    for(var i = 0; i < Bike.arrayBikes.length; i++){
+        if(Bike.arrayBikes[i].id == id){
+            Bike.arrayBikes.splice(i, 1);
+            break;
+        }
     }
 }
 
 module.exports = Bike;
 
-console.log(Bike);

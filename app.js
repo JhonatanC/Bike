@@ -4,8 +4,16 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// var bootstrap = require('bootstrap');
+// var jquery = require('query');
+// var popper = require('@popperjs/core');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var registerRouter = require('./routes/register');
+var listBikeRouter = require('./routes/list');
+var bikesRouterApi = require('./routes/api/bikesRoutes');
+const { response } = require('express');
 
 var app = express();
 
@@ -19,8 +27,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
+// app.use(jquery);
+// app.use(popper);
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/register', registerRouter);
+app.use('/list', listBikeRouter);
+app.use('/api/bikes', bikesRouterApi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
