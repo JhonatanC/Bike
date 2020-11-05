@@ -15,7 +15,7 @@ router.post('/store',bikeController.store);
 router.get('/:id/edit',bikeController.edit);
 
 // Actualizar información
-router.post('/:id/edit',bikeController.update);
+router.post('/:id/update',bikeController.update);
 
 // Borrar
 router.post('/:id/delete',bikeController.delete);

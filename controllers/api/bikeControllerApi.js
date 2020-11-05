@@ -42,8 +42,14 @@ exports.edit = function(request, response){
     response.render('bikes/edit', {bike});
 }
 
-exports.update = function(){
+exports.update = function(request, response){
+    var bike = Bike.searchBike(request.params.id);
+    bike.id = request.body.id;
+    bike.color = request.body.color;
+    bike.modelo = request.body.modelo;
+    bike.ubicacion = [request.body.lat, request.body.lng];
 
+    response.redirect('/list');
 }
 
 exports.delete = function(request,response){
